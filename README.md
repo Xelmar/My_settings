@@ -1,4 +1,2 @@
 # My_settings
-Basic information about where to put this configs
-
-just extract
+Just me configs at this poor stage
