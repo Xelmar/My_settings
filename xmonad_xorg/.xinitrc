@@ -5,6 +5,7 @@ xsetroot -cursor_name left_ptr &
 
 export PATH=~/bin:$PATH
 
-feh --bg-scale /home/xelmar/Pictures/wall.jpg
+feh --bg-scale /home/xelmar/Pictures/35Lun7R.jpg
+exec mkfifo /tmp/.volume-pipe
 
 exec dbus-launch xmonad

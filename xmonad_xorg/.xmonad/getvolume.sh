@@ -1,5 +1,5 @@
 #!/bin/sh
-vol=`amixer sget Master | grep -o -m 1 '[[:digit:]]*%' | tr -d '%'`
+vol=`amixer -c 1 sget Master | grep -o -m 1 '[[:digit:]]*%' | tr -d '%'`
 level=`expr $vol / 10`
 bars=$level
 

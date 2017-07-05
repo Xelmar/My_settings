@@ -69,7 +69,7 @@ defaults = defaultConfig {
 	}`additionalKeys` myKeys
 
 myWorkspaces :: [String]
-myWorkspaces =  ["1:web","2:dev","3:term","4:vm","5:media"] ++ map show [6..9]
+myWorkspaces =  ["1:WorkGround","2:dev","3:web","4:vm","5:media"] ++ map show [6..9]
 
 -- tab theme default
 myTabConfig = defaultTheme {
@@ -81,7 +81,7 @@ myTabConfig = defaultTheme {
  }
 
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#FFB6B0"
+xmobarTitleColor = "#FFFFFF" --"#FFB6B0"
 
 -- Color of current workspace in xmobar.
 xmobarCurrentWorkspaceColor = "green"
@@ -105,18 +105,19 @@ myLayoutHook = spacing 6 $ gaps [(U,15)] $ toggleLayouts (noBorders Full) $
 myManageHook :: ManageHook
 	
 myManageHook = composeAll . concat $
-	[ [className =? c --> doF (W.shift "1:web")		| c <- myWeb]
+	[ [className =? c --> doF (W.shift "1:WorkGround")		| c <- myWorkG]
 	, [className =? c --> doF (W.shift "2:dev")		| c <- myDev]
-	--, [className =? c --> doF (W.shift "3:term")		| c <- myTerm]
+	, [className =? c --> doF (W.shift "3:web")		| c <- myWeb]
 	, [className =? c --> doF (W.shift "4:vm")		| c <- myVMs]
 	, [className =? c --> doF (W.shift "5:media")		| c <- myMedia]
 	, [manageDocks]
 	]
 	where
-	myWeb = ["Firefox","Chromium","Google-chrome"]
+	myWorkG = ["python"]
 	myDev = ["Eclipse","Gedit","sublime-text"]
+	myWeb = ["Firefox","Chromium","Google-chrome"]
 	--myTerm = ["Terminator","xterm"]
-	myVMs = ["VirtualBox"]
+        myVMs = ["VirtualBox"]
 	myMedia = ["Steam"]
 	
 	--KP_Add KP_Subtract
@@ -125,9 +126,11 @@ myKeys = [
          , ((mod4Mask .|. controlMask, xK_Left ), prevScreen)
          , ((mod4Mask, xK_w), goToSelected defaultGSConfig)
 	 	     , ((mod4Mask, xK_s), spawnSelected defaultGSConfig ["chromium","idea","gvim"])
-	 	     , ((mod4Mask, xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+ && ~/.xmonad/getvolume.sh >> /tmp/.volume-pipe")
-	 	     , ((mod4Mask, xF86XK_AudioLowerVolume), spawn "amixer set Master 5%- && ~/.xmonad/getvolume.sh >> /tmp/.volume-pipe")
-         --, ((mod4Mask, 'XF86AudioMute'), sendMessage ToggleStruts)
+	 	     , ((mod4Mask, xF86XK_AudioRaiseVolume), spawn "amixer -c 1 sset Master 5%+ && ~/.xmonad/getvolume.sh > /tmp/.volume-pipe")
+	 	     , ((mod4Mask, xF86XK_AudioLowerVolume), spawn "amixer -c 1 sset Master 5%- && ~/.xmonad/getvolume.sh > /tmp/.volume-pipe")
+         , ((mod4Mask, xF86XK_AudioMute), spawn "amixer -c 1 sset Master toggle && amixer -c 1 sset Headphone toggle")
+         , ((mod4Mask, xF86XK_MonBrightnessDown), spawn "brightnessctl set 10%-")
+         , ((mod4Mask, xF86XK_MonBrightnessUp), spawn "brightnessctl set 10%+")
          ]
                    
 
@@ -137,7 +140,7 @@ main = do
 	xmonad $ defaults {
 	logHook =  dynamicLogWithPP $ defaultPP {
             ppOutput = System.IO.hPutStrLn xmproc
-          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100 .wrap "  [ <fc=gray>" "</fc> ]  "
+          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100 .wrap "  [ <fc=gray> " " </fc> ]  "
           , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "" . wrap "[" "]"
           , ppSep = "   "
           , ppWsSep = " "
@@ -145,7 +148,7 @@ main = do
           , ppLayout  = (\ x -> case x of
               "Spacing 6 Mosaic"                      -> "[:]"
               "Spacing 6 Mirror Tall"                 -> "[M]"
-              "Spacing 6 Hinted Tabbed Simplest"      -> "[T]"
+              "Spacing 6 Tabbed Simplest"             -> "[T]" --Hinted Tabbed
               "Spacing 6 Full"                        -> "[ ]"
               _                                       -> x )
           , ppHiddenNoWindows = showNamedWorkspaces
