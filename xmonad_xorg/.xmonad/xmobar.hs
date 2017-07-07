@@ -2,7 +2,8 @@ Config {
     font = "xft:Liberation Sans:size=9:bold italic::antialias=true"
     bgColor = "#000000",
     fgColor = "#ffffff",
-    position = Static { xpos = 0, ypos = 0, width = 1370, height = 16 },
+    alpha = 255,
+    position = Static { xpos = 6, ypos = 8, width = 1354, height = 16 },
     lowerOnStart = True,
     commands = [
         Run Memory ["-t","<used>/<total>M (<cache>M)","-H","8192","-L","4096","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10      

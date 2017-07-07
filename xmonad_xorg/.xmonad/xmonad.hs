@@ -86,7 +86,7 @@ xmobarTitleColor = "#FFFFFF" --"#FFB6B0"
 -- Color of current workspace in xmobar.
 xmobarCurrentWorkspaceColor = "green"
 
-myLayoutHook = spacing 6 $ gaps [(U,15)] $ toggleLayouts (noBorders Full) $
+myLayoutHook = spacing 6 $ gaps [(U,28),(D,6),(R,6),(L,6)] $ toggleLayouts (noBorders Full) $ 
     smartBorders $ Mirror tiled ||| mosaic 2 [3,2]  ||| tabbed shrinkText myTabConfig
       where 
         tiled = Tall nmaster delta ratio
@@ -128,9 +128,10 @@ myKeys = [
 	 	     , ((mod4Mask, xK_s), spawnSelected defaultGSConfig ["chromium","idea","gvim"])
 	 	     , ((mod4Mask, xF86XK_AudioRaiseVolume), spawn "amixer -c 1 sset Master 5%+ && ~/.xmonad/getvolume.sh > /tmp/.volume-pipe")
 	 	     , ((mod4Mask, xF86XK_AudioLowerVolume), spawn "amixer -c 1 sset Master 5%- && ~/.xmonad/getvolume.sh > /tmp/.volume-pipe")
-         , ((mod4Mask, xF86XK_AudioMute), spawn "amixer -c 1 sset Master toggle && amixer -c 1 sset Headphone toggle")
+         , ((mod4Mask, xF86XK_AudioMute), spawn "amixer -c 1 sset Master toggle & amixer -c 1 sset Headphone toggle & amixer -c 1 sset Speaker toggle") 
          , ((mod4Mask, xF86XK_MonBrightnessDown), spawn "brightnessctl set 10%-")
          , ((mod4Mask, xF86XK_MonBrightnessUp), spawn "brightnessctl set 10%+")
+         , ((mod4Mask, xK_p), spawn "dmenu_run -x 6 -y 8 -h 16 -w 1354")
          ]
                    
 
