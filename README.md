@@ -1,2 +1,2 @@
 # My_settings
-Just my configs at this poor stage
+My .zshrc, .xintrc, .xDefaults, xmonad, xmobar, moc config and theme files
