@@ -1,0 +1,25 @@
+#!/usr/bin/conky
+
+conky.config = {
+background = no,
+out_to_console = yes,
+update_interval = 1,
+total_run_times = 0,
+use_spacer = left
+};
+
+conky.text = [[
+SSD I/O: ${diskio /dev/nvme0n1}     \
+HDD I/O: ${diskio /dev/sda7}     \
+\
+SSD Temp: ${execi 10 sudo nvme smart-log /dev/nvme0 | grep temperature | awk '{print $3/1;}'}°C     \
+HDD Temp: ${execi 10 sudo hddtemp -w /dev/sda | awk '{print $4/1;}'}°C    |    \
+\
+CPU Core Temp: ${execi 1 sensors | grep 'Core' | awk '{counter++;core_temp[counter]=$3;} END {print core_temp[1]/1, core_temp[2]/1, core_temp[3]/1, core_temp[4]/1;}'} °C     |    \
+\
+GPU Temp: ${exec nvidia-settings -tq GPUCoreTemp | awk 'END {print $1/1;}'}°C     \
+GPU Utilize: ${exec nvidia-settings -tq GPUUtilization | awk -F '[,= ]' '{ print $2 }'}%     \
+GPU Freq: ${exec nvidia-settings -tq GPUCurrentClockFreqs | awk 'END {print $1/1;}'} Mhz     \
+Mem Freq: ${exec nvidia-settings -tq GPUCurrentClockFreqsString | grep -o 'memTransferRate=[0-9]*' | awk 'END {split($0,a,"=");print a[2]}'}  Mhz     \
+Mem: ${exec nvidia-smi --query-gpu=memory.used --format=csv,noheader} / ${exec nvidia-smi --query-gpu=memory.total --format=csv,noheader}   
+]];
