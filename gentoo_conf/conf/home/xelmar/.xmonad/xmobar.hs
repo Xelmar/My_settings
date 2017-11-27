@@ -43,6 +43,6 @@ Config {
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{ <fc=#FFFF00> %vol% </fc>  | %multicpu% | %memory% | %wlp2s0% |  %battery%  | <fc=#FFFFCC>%date%</fc>   "
+    template = "%StdinReader% }{ <fc=#FFFF00> %vol% </fc> | %multicpu%  | %memory% | %wlp2s0% |  %battery%  | <fc=#FFFFCC>%date%</fc>   "
 }
 

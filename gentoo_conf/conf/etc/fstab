@@ -30,7 +30,7 @@
 
 /dev/nvme0n1p1		/			ext4		defaults,noatime		0 1
 
-/dev/sda7		/media/home		ext4		defaults,noatime		0 2
+/dev/sda8		/media/home		ext4		defaults,noatime		0 2
 
 tmpfs			/var/tmp/portage	tmpfs		size=12G			0 2
 

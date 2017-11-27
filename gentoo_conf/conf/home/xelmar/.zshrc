@@ -10,10 +10,12 @@ export PATH="/opt/cuda/bin/:$PATH"
 
 alias font-colors="for code ({000..255}) print -P -- '\$code: \%F{\$code}This is how your text would look like\%f'"
 
-alias emerge-auDN="sudo emerge -auDN @world --exclude 'rstudio chromium'"
+alias emerge-auDN="sudo emerge -auDN @world --exclude 'rstudio chromium libreoffice'"
 alias emerge-sync="sudo emerge --sync"
 
 alias xmonad-restart="dzen2 & killall dzen2 && xmonad --restart"
+
+alias fehh="feh --randomize --bg-scale ~/Wallpapper/real/*"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -99,3 +101,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -2,4 +2,4 @@
 
 #RAND=$((RANDOM % )) 
 
-i3lock -i ~/Wallpapper/blur/1.png
+i3lock -i ~/Wallpapper/blur/10.png
