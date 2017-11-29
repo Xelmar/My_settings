@@ -10,7 +10,7 @@ export PATH="/opt/cuda/bin/:$PATH"
 
 alias font-colors="for code ({000..255}) print -P -- '\$code: \%F{\$code}This is how your text would look like\%f'"
 
-alias emerge-auDN="sudo emerge -auDN @world --exclude 'rstudio chromium libreoffice'"
+alias emerge-auDN="sudo emerge -auDN @world --exclude 'chromium libreoffice'"
 alias emerge-sync="sudo emerge --sync"
 
 alias xmonad-restart="dzen2 & killall dzen2 && xmonad --restart"
