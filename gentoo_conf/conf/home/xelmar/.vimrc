@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'davidhalter/jedi-vim'
 
 " [|],{|},'|'
 Plug 'jiangmiao/auto-pairs'
