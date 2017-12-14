@@ -5,11 +5,22 @@ urxvt*background:       #000000
 urxvt*foreground:       #cccccc
 urxvt*scrollBar:        false
 urxvt*perl-lib:         /usr/lib/urxvt/perl/
-urxvt*perl-ext-common:  default,matcher
-urxvt*urlLauncher:      chromium --/usr/bin/jumanji
-urxvt*matcher.button:   1
+#urxvt*perl-ext-common:  default,matcher
+#urxvt*urlLauncher:      /usr/bin/chromium
+#urxvt*matcher.button:   1
 #urxvt*fading:           50
 #urxvt*fadeColor:        #000000
+
+!-*- Perl extensions -*-
+URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select
+URxvt.keysym.M-u:     perl:url-select:select_next
+URxvt.url-launcher:   /usr/bin/chromium
+URxvt.underlineURLs:  True
+URxvt.matcher.button: 1 
+URxvt.keysym.M-Escape:perl:keyboard-select:activate
+URxvt.keysym.Control-Shift-V:     perl:pasta:paste
+! Comment this if you don't want copy when text is selected
+URxvt.clipboard.autocopy: true
 
 Xft*dpi:                96
 Xft*antialias:          true
