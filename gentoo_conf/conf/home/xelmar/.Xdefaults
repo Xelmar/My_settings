@@ -1,5 +1,6 @@
 #urxvt*font:             xft:Terminus:size=10
-urxvt*font:             xft:Monospace:regular:size=12
+#urxvt*font:             xft:Monospace:regular:size=12
+urxvt*font:		xft:Hack:size=12
 urxvt*termName:         rxvt-unicode
 urxvt*background:       #000000
 urxvt*foreground:       #cccccc

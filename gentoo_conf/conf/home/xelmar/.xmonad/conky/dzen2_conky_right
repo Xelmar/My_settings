@@ -19,6 +19,7 @@ CPU Core Temp: ${execi 1 sensors | grep 'Core' | awk '{counter++;core_temp[count
 \
 GPU Temp: ${exec nvidia-settings -tq GPUCoreTemp | awk 'END {print $1/1;}'}°C     \
 GPU Utilize: ${exec nvidia-settings -tq GPUUtilization | awk -F '[,= ]' '{ print $2 }'}%     \
+GPU Video: ${exec nvidia-settings -tq GPUUtilization | awk -F '[,= ]' '{ print $8 }'}%     \
 GPU Freq: ${exec nvidia-settings -tq GPUCurrentClockFreqs | awk 'END {print $1/1;}'} Mhz     \
 Mem Freq: ${exec nvidia-settings -tq GPUCurrentClockFreqsString | grep -o 'memTransferRate=[0-9]*' | awk 'END {split($0,a,"=");print a[2]}'}  Mhz     \
 Mem: ${exec nvidia-smi --query-gpu=memory.used --format=csv,noheader} / ${exec nvidia-smi --query-gpu=memory.total --format=csv,noheader}   

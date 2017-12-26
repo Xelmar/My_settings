@@ -142,10 +142,25 @@ while(<CONKY>){
 	
 	$str .= $temp[0]."^fg()%".$tab;
 
+	 #GPU
+         #  --> GPU Video
+         @mass2 = split(" ",$mass1[2]);
+ 
+         $str .= $main_color.$mass2[0]." ".$mass2[1]." ";
+ 
+         @temp = split("%",$mass2[2]); # it is not temp, just lack of variables
+         if( $temp[0] < 10 ){$str .= $excellent;}
+            elsif( $temp[0] < 30 ){$str .= $good;}
+               elsif( $temp[0] < 50 ){$str .= $normal;}
+                  elsif( $temp[0] < 70 ){$str .= $bad;}
+                     elsif( $temp[0] < 90 ){$str .= $very_bad;}
+                         else {$str .= $blank;}
+ 
+         $str .= $temp[0]."^fg()%".$tab;
 	
 	#GPU
 	#  --> GPU Freq
-	@mass2 = split(" ",$mass1[2]);
+	@mass2 = split(" ",$mass1[3]);
 
 	$str .= $main_color.$mass2[0]." ".$mass2[1]." ";
 
@@ -161,7 +176,7 @@ while(<CONKY>){
 
 	#GPU
 	#  --> Mem Freq
-	@mass2 = split(" ",$mass1[3]);
+	@mass2 = split(" ",$mass1[4]);
 
 	$str .= $main_color.$mass2[0]." ".$mass2[1]." ";
 
@@ -177,7 +192,7 @@ while(<CONKY>){
 	
 	#GPU
 	#  --> GPU Mem
-	@mass2 = split(" ",$mass1[4]);
+	@mass2 = split(" ",$mass1[5]);
 
 	$str .= $main_color.$mass2[0]." ";
 
