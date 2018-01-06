@@ -5,6 +5,7 @@ setxkbmap -option "grp:ctrl_alt_toggle,grp_led:scroll"
 xsetroot -cursor_name left_ptr &
 
 export PATH=~/bin:$PATH
+export PATH=/opt/intel/bin:$PATH
 
 export _volume_pipe=/tmp/.volume-pipe
 [[ -S $_volume_pipe ]] || mkfifo $_volume_pipe
