@@ -55,3 +55,5 @@ dev-libs/libgcrypt abi_x86_32
 dev-libs/libev abi_x86_32
 net-dns/avahi abi_x86_32
 x11-proto/scrnsaverproto abi_x86_32
+dev-libs/icu abi_x86_32
+sys-libs/e2fsprogs-libs abi_x86_32

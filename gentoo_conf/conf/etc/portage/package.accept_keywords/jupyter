@@ -1,0 +1,18 @@
+dev-python/nbconvert ~amd64
+dev-python/jupyter_console ~amd64
+dev-python/notebook ~amd64
+dev-python/ipython ~amd64
+dev-python/pandocfilters ~amd64
+dev-python/qtconsole ~amd64
+dev-python/ipywidgets  ~amd64
+dev-python/entrypoints  ~amd64
+dev-python/nbformat  ~amd64
+dev-python/jupyter  ~amd64
+dev-python/jupyter_client  ~amd64
+dev-python/mistune  ~amd64
+dev-python/testpath  ~amd64
+dev-python/ipyparallel  ~amd64
+dev-python/widgetsnbextension  ~amd64
+dev-python/ipykernel  ~amd64
+dev-python/jupyter_core  ~amd64
+

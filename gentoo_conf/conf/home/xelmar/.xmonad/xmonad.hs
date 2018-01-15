@@ -132,6 +132,7 @@ myKeys = [
          , ((mod1Mask, xK_w), spawn "chromium")
          , ((mod1Mask, xK_m), spawn "urxvt -e mocp")
 	 , ((mod1Mask, xK_q), spawn "qtcreator")
+	 , ((mod1Mask, xK_v), spawn "VirtualBox")
 	 , ((mod1Mask .|. shiftMask, xK_l), spawn "~/.xmonad/sh/lock_screen.sh")
          , ((mod1Mask .|. shiftMask, xK_t), spawn "urxvt")
 	 , ((mod1Mask .|. shiftMask, xK_s), spawn "xfce4-screenshooter")
