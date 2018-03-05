@@ -5,19 +5,19 @@
   export ZSH=/home/xelmar/.oh-my-zsh
 
 export VISUAL="vim"
-export PATH="/usr/lib/ccache/bin/:$PATH"
-export PATH="/opt/cuda/bin/:$PATH"
+#export PATH="/usr/lib/ccache/bin/:$PATH"
+#export PATH="/opt/cuda/bin/:$PATH"
 
 alias font-colors="for code ({000..255}) print -P -- '\$code: \%F{\$code}This is how your text would look like\%f'"
 
-alias emerge-auDN="sudo emerge -auDN @world --exclude 'chromium libreoffice'"
+alias emerge-auDN="sudo emerge -auDN @world --exclude 'chromium'"
 alias emerge-sync="sudo emerge --sync"
 
 alias pip-upgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U --user"
 
-alias xmonad-restart="dzen2 & killall dzen2 && xmonad --restart"
+alias xmonad-restart="killall conky && xmonad --restart"
 
-alias fehh="feh --randomize --bg-scale ~/Wallpapper/real/*"
+alias fehh="feh --randomize --bg-scale ~/Wallpapper/real/wild/*"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.

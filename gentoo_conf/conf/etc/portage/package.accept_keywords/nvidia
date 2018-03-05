@@ -1,0 +1,3 @@
+dev-util/nvidia-cuda-sdk ~amd64
+dev-util/nvidia-cuda-toolkit ~amd64
+x11-drivers/nvidia-drivers ~amd64

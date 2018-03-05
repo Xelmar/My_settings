@@ -18,6 +18,7 @@ xfce4-power-manager &
 xrandr --setprovideroutputsource modesetting NVIDIA-0 
 xrandr --auto 
 
-feh --randomize --bg-scale ~/Wallpapper/real/*
+feh --randomize --bg-scale ~/Wallpapper/real/wild/*
+perl ~/src/nvme/smartlog.pl &
 
 exec ck-launch-session dbus-launch --sh-syntax --exit-with-session xmonad

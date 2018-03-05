@@ -110,7 +110,7 @@ myManageHook = composeAll . concat $
 	myDev = ["Rstudio","QtCreator"]
 	myWeb = ["Chromium-browser-chromium"]
 	myApps = ["VirtualBox","Thunar"]
-	myMedia = ["Steam","TelegramDesktop"]
+	myMedia = ["Steam","TelegramDesktop","Slack"]
 	
 	--KP_Add KP_Subtract
 myKeys = [
@@ -136,6 +136,8 @@ myKeys = [
 	 , ((mod1Mask .|. shiftMask, xK_l), spawn "~/.xmonad/sh/lock_screen.sh")
          , ((mod1Mask .|. shiftMask, xK_t), spawn "urxvt")
 	 , ((mod1Mask .|. shiftMask, xK_s), spawn "xfce4-screenshooter")
+	 , ((mod1Mask .|. shiftMask, xK_n), spawn "chromium --app='http://localhost:8888/tree'")
+	 , ((mod1Mask .|. shiftMask, xK_e), spawn "slack")
 	 --, (mod4Mask, button2)
          ]
                    
@@ -143,7 +145,7 @@ myKeys = [
 
 main = do
 	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.hs"
-	spawnPipe "~/.xmonad/perl/parse.pl | dzen2 -ta r -tw 1896 -x 12 -y 1056 -h 16"
+	spawnPipe "perl ~/.xmonad/perl/parse_xmobar0.pl | xmobar ~/.xmonad/xmobar_bot.hs"
 	xmonad $ defaults {
 	logHook =  dynamicLogWithPP $ defaultPP {
             ppOutput = System.IO.hPutStrLn xmproc
