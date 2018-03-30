@@ -57,3 +57,4 @@ net-dns/avahi abi_x86_32
 x11-proto/scrnsaverproto abi_x86_32
 dev-libs/icu abi_x86_32
 sys-libs/e2fsprogs-libs abi_x86_32
+media-libs/jasper abi_x86_32
