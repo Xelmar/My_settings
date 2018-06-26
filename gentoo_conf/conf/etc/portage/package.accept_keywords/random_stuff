@@ -1,0 +1,2 @@
+x11-libs/libxcb ~amd64
+x11-base/xcb-proto ~amd64

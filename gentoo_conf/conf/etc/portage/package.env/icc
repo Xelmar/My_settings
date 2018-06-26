@@ -1,16 +1,17 @@
-app-arch/bzip2 icc.conf
-app-arch/cpio icc.conf
-media-libs/giflib icc.conf
-media-sound/lame icc.conf
-#dev-libs/libgpg-error icc.conf
-media-libs/libogg icc.conf
-#media-libs/libpng icc.conf
-media-libs/libtheora icc.conf
-media-libs/libvorbis icc.conf
-dev-libs/libxml2 icc.conf
-dev-libs/lzo icc.conf
-app-arch/pbzip2 icc.conf
-media-libs/speex icc.conf
-app-arch/tar icc.conf
-media-libs/xvid icc.conf
-media-video/ffmpeg icc.conf
+#app-arch/bzip2 icc.conf
+#app-arch/cpio icc.conf
+#media-libs/giflib icc.conf
+#media-sound/lame icc.conf
+# dev-libs/libgpg-error icc.conf
+#media-libs/libogg icc.conf
+# media-libs/libpng icc.conf
+#media-libs/libtheora icc.conf
+#media-libs/libvorbis icc.conf
+#dev-libs/libxml2 icc.conf
+#dev-libs/lzo icc.conf
+#app-arch/pbzip2 icc.conf
+#media-libs/speex icc.conf
+#app-arch/tar icc.conf
+#media-libs/xvid icc.conf
+#media-video/ffmpeg icc.conf
+# dev-lang/python icc.conf

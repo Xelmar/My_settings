@@ -34,4 +34,6 @@
 
 tmpfs			/var/tmp/portage	tmpfs		size=12G			0 2
 
-shm			/dev/shm		tmpfs		nodev,nosuid,noexec,size=1G		0 0
+shm			/dev/shm		tmpfs		nodev,nosuid,noexec,size=1G	0 0
+
+#/media/home/swapfile	none			swap		defaults			0 2

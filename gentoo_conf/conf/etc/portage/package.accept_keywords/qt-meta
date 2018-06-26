@@ -1,0 +1,13 @@
+dev-qt/* ~amd64
+#dev-qt/qtbluetooth ~amd64
+#dev-qt/qtsql ~amd64
+#dev-qt/qtxml ~amd64
+#dev-qt/qtx11extras ~amd64
+#dev-qt/qtnetwork ~amd64
+#dev-qt/qtopengl ~amd64
+#dev-qt/qtconcurrent ~amd64
+#dev-qt/qtwidgets ~amd64
+#dev-qt/qtdbus ~amd64
+#dev-qt/qtgui ~amd64
+#dev-qt/linguist-tools ~amd64
+#dev-qt/qtprintsupport ~amd64

@@ -1,0 +1,3 @@
+dev-python/pip python_all.conf
+dev-python/setuptools python_all.conf
+dev-python/certifi python_all.conf

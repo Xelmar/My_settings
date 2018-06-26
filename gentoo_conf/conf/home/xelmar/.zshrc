@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
   export ZSH=/home/xelmar/.oh-my-zsh
 
-export VISUAL="vim"
+export VISUAL="nvim"
 #export PATH="/usr/lib/ccache/bin/:$PATH"
 #export PATH="/opt/cuda/bin/:$PATH"
 
@@ -18,6 +18,7 @@ alias pip-upgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs 
 alias xmonad-restart="killall conky && xmonad --restart"
 
 alias fehh="feh --randomize --bg-scale ~/Wallpapper/real/wild/*"
+alias kaggle="~/.local/bin/kaggle"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -25,6 +26,9 @@ alias fehh="feh --randomize --bg-scale ~/Wallpapper/real/wild/*"
 
 ZSH_THEME="bira"
 
+autoload -U compinit promptinit
+compinit
+promptinit; prompt gentoo
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -88,7 +92,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS3="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"

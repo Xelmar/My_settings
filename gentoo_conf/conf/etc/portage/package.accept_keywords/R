@@ -1,1 +1,3 @@
 dev-lang/R ~amd64
+sci-mathematics/rstudio ~amd64
+dev-libs/mathjax ~amd64

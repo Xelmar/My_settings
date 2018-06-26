@@ -6,7 +6,8 @@ x11-proto/inputproto abi_x86_32
 x11-proto/xf86bigfontproto abi_x86_32
 x11-proto/xproto abi_x86_32
 sys-libs/zlib abi_x86_32
-x11-proto/xcb-proto abi_x86_32
+# move x11-proto/xcb-proto x11-base/xcb-proto
+x11-base/xcb-proto abi_x86_32
 x11-libs/libXau abi_x86_32
 x11-libs/libXext abi_x86_32
 x11-libs/libvdpau abi_x86_32
