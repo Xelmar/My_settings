@@ -1,2 +1,6 @@
 x11-libs/libxcb ~amd64
 x11-base/xcb-proto ~amd64
+dev-java/gwt ~amd64
+net-dns/avahi ~amd64
+sys-apps/inxi ~amd64
+dev-util/peg ~amd64

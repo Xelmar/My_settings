@@ -1,4 +1,4 @@
-dev-qt/* ~amd64
+#dev-qt/* ~amd64
 #dev-qt/qtbluetooth ~amd64
 #dev-qt/qtsql ~amd64
 #dev-qt/qtxml ~amd64

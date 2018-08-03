@@ -1,0 +1,3 @@
+dev-qt/qtgui gtkstyle
+dev-qt/qtwebchannel qml
+dev-qt/qtwebengine widgets

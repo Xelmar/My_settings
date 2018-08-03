@@ -17,7 +17,7 @@ alias pip-upgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs 
 
 alias xmonad-restart="killall conky && xmonad --restart"
 
-alias fehh="feh --randomize --bg-scale ~/Wallpapper/real/wild/*"
+alias fehh="feh --randomize --bg-scale ~/Wallpapper/real/07.18/*"
 alias kaggle="~/.local/bin/kaggle"
 
 # Set name of the theme to load. Optionally, if you set this to "random"

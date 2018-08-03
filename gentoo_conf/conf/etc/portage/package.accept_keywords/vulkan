@@ -1,2 +1,2 @@
-#media-libs/vulkan-loader ~amd64
-#dev-util/vulkan-headers ~amd64
+media-libs/vulkan-loader ~amd64
+dev-util/vulkan-headers ~amd64

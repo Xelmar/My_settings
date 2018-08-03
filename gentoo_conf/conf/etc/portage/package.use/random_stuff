@@ -1,0 +1,18 @@
+gnome-base/gvfs afp archive fuse http nfs
+media-libs/harfbuzz icu
+net-misc/iputils -caps -filecaps
+net-ftp/lftp verify-file
+sys-libs/libblockdev lvm
+dev-libs/libpcre pcre16
+dev-lua/lpeg luajit
+dev-lua/mpack luajit
+sys-fs/ntfs3g external-fuse ntfsprogs
+#net-nds/openldap gnutls -libressl
+app-text/poppler qt5
+net-fs/samba winbind client
+dev-vcs/subversion -dso
+sys-libs/tdb python
+app-admin/testdisk ntfs
+sys-libs/tevent python
+dev-libs/xmlsec gcrypt nss
+sys-libs/zlib minizip

@@ -32,7 +32,6 @@ urxvt*background:       rgba:0000/0000/0000/cccc
 URxvt.transparent:   true
 URxvt.tintColor:     white
 URxvt.shading:       20 
- 
 
 #URxvt*foreground: #ffffff
 #URxvt*background: #000000
@@ -57,7 +56,7 @@ URxvt.shading:       20
 #URxvt*visualbell:       true
 #URxvt*scrollBar:        false
 #URxvt*scrollBar_right:  true
-#URxvt*saveLines:        3000
+URxvt*saveLines:        3000
 
 *color0:  #2E3436
 *color1:  #008000

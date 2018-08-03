@@ -1,0 +1,10 @@
+net-dns/avahi -qt5
+app-crypt/pinentry -qt5
+app-doc/doxygen -qt5
+app-crypt/gpgme -qt5
+net-p2p/transmission -qt5
+media-libs/opencv -qt5
+media-gfx/graphviz -qt5
+media-libs/openal -qt5
+dev-python/ipython -qt5
+net-wireless/wpa_supplicant -qt5
