@@ -17,6 +17,9 @@ Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 
+set incsearch
+set hlsearch
+
 set number
 let g:mapleader=','
 
