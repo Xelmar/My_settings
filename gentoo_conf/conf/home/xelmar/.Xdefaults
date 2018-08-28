@@ -32,6 +32,7 @@ urxvt*background:       rgba:0000/0000/0000/cccc
 URxvt.transparent:   true
 URxvt.tintColor:     white
 URxvt.shading:       20 
+URxvt.blurRadius:    20
 
 #URxvt*foreground: #ffffff
 #URxvt*background: #000000

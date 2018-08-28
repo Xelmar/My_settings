@@ -63,3 +63,4 @@ x11-base/xcb-proto python_targets_python3_6 abi_x86_32
 media-libs/libsdl2 haptic abi_x86_32
 media-libs/vulkan-loader abi_x86_32
 virtual/opencl abi_x86_32
+dev-libs/fribidi abi_x86_32

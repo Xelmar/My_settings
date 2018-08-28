@@ -1,2 +1,3 @@
-x11-wm/xmonad doc 
-x11-wm/xmonad-contrib doc
+x11-wm/xmonad doc hscolor
+x11-wm/xmonad-contrib doc hscolor
+x11-misc/xmobar xpm timezone mpris

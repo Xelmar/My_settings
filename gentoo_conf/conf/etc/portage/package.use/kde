@@ -1,0 +1,3 @@
+dev-libs/wayland abi_x86_32
+net-dns/avahi mdnsresponder-compat
+kde-plasma/plasma-meta -sddm

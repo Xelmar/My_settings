@@ -9,7 +9,8 @@ import Graphics.X11.ExtraTypes.XF86
 import qualified System.IO
 import XMonad.Actions.CycleWS (nextScreen,prevScreen)
 import Data.List
- 
+import Data.Char
+
 -- Prompts
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -26,6 +27,8 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Scratchpad
 -- Hooks
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.Place
@@ -53,23 +56,21 @@ import XMonad.Layout.Gaps
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 
+import XMonad.Xelmar.Manage
+
 defaults = defaultConfig {
-        --terminal      = "terminator"
-	terminal             = "urxvt"
-        --, font		  = "xft:Monospace:size=10"
-        , normalBorderColor  = "black"
+	terminal              = "urxvt"
+        --, font		      = "xft:Hack:size=12:bold italici"--"xft:Monospace:size=10"
+        , normalBorderColor   = "black"
         , focusedBorderColor  = "orange"        
         , workspaces          = myWorkspaces
-        , modMask             = mod1Mask
+        , modMask             = myModMask
         , borderWidth         = 2
         , startupHook         = setWMName "LG3D"
         , layoutHook          = myLayoutHook
         , manageHook          = myManageHook
         , handleEventHook     = fullscreenEventHook
 	}`additionalKeys` myKeys
-
-myWorkspaces :: [String]
-myWorkspaces =  ["1:WorkGround","2:dev","3:web","4:apps","5:media"] ++ map show [6..9]
 
 -- tab theme default
 myTabConfig = defaultTheme {
@@ -94,68 +95,92 @@ myLayoutHook = spacing 6 $ gaps [(U,28),(D,28),(R,6),(L,6)] $ toggleLayouts (noB
         delta   = 3/100
         ratio   = 3/5
 
-                              
-myManageHook :: ManageHook
+
+
 	
-myManageHook = composeAll . concat $
-	[ [className =? c --> doF (W.shift "1:WorkGround")	| c <- myWorkG]
-	, [className =? c --> doF (W.shift "2:dev")		| c <- myDev]
-	, [className =? c --> doF (W.shift "3:web")		| c <- myWeb]
-	, [className =? c --> doF (W.shift "4:apps")		| c <- myApps]
-	, [className =? c --> doF (W.shift "5:media")		| c <- myMedia]
-	, [manageDocks]
-	]
-	where
-	myWorkG = ["python"]
-	myDev = ["Rstudio","QtCreator"]
-	myWeb = ["Chromium-browser-chromium"]
-	myApps = ["VirtualBox","Thunar"]
-	myMedia = ["Steam","TelegramDesktop","Slack"]
-	
+
 	--KP_Add KP_Subtract
 myKeys = [
-           ((mod1Mask, xK_Right), nextScreen) 
-         , ((mod1Mask .|. controlMask, xK_Left ), prevScreen)
-         , ((mod1Mask, xK_o), goToSelected defaultGSConfig)
-	 , ((mod1Mask, xF86XK_AudioRaiseVolume), spawn "amixer sset Master 5%+ && ~/.xmonad/sh/getvolume.sh > /tmp/.volume-pipe")
-	 , ((mod1Mask, xF86XK_AudioLowerVolume), spawn "amixer sset Master 5%- && ~/.xmonad/sh/getvolume.sh > /tmp/.volume-pipe")
-         , ((mod1Mask, xF86XK_AudioMute), spawn "amixer sset Master toggle & amixer -c 1 sset Headphone toggle & amixer -c 1 sset Speaker toggle") 
-         , ((mod1Mask, xF86XK_MonBrightnessDown), spawn "sudo ~/.xmonad/sh/change_brightness.sh -10")
-         , ((mod1Mask, xF86XK_MonBrightnessUp), spawn "sudo ~/.xmonad/sh/change_brightness.sh +10")
-	 , ((mod1Mask, xK_r), spawn "chromium --app='http://127.0.0.1:8787'")
-	 , ((mod1Mask, xK_s), spawn "steam")
-	 , ((mod1Mask, xK_p), spawn "pinta")
-	 , ((mod1Mask, xK_e), spawn "telegram-desktop")
-         , ((mod1Mask, xK_f), spawn "thunar")
-         , ((mod1Mask, xK_w), spawn "chromium")
-         , ((mod1Mask, xK_m), spawn "urxvt -e mocp")
-	 , ((mod1Mask, xK_v), spawn "VirtualBox")
-	 , ((mod1Mask .|. shiftMask, xK_l), spawn "~/.xmonad/sh/lock_screen.sh")
-         , ((mod1Mask .|. shiftMask, xK_t), spawn "urxvt")
-	 , ((mod1Mask .|. shiftMask, xK_s), spawn "gnome-screenshot -i")
+           ((myModMask, xK_Right), nextScreen) 
+         , ((myModMask .|. controlMask, xK_Left ), prevScreen)
+         , ((myModMask, xK_o), goToSelected defaultGSConfig)
+	 , ((myModMask, xF86XK_AudioRaiseVolume), spawn "amixer sset Master 5%+")
+	 , ((myModMask, xF86XK_AudioLowerVolume), spawn "amixer sset Master 5%-")
+         , ((myModMask, xF86XK_AudioMute), spawn "amixer sset Master toggle & amixer -c 1 sset Headphone toggle & amixer -c 1 sset Speaker toggle") 
+         , ((myModMask, xF86XK_MonBrightnessDown), spawn "sudo ~/.xmonad/.sh/change_brightness.sh -10")
+         , ((myModMask, xF86XK_MonBrightnessUp), spawn "sudo ~/.xmonad/.sh/change_brightness.sh +10")
+	 , ((myModMask, xK_r), spawn "chromium --app='http://127.0.0.1:8787'")
+	 , ((myModMask, xK_s), spawn "steam")
+	 , ((myModMask, xK_p), spawn "pinta")
+	 , ((myModMask, xK_e), spawn "telegram-desktop")
+         , ((myModMask, xK_f), spawn "thunar")
+         , ((myModMask, xK_w), spawn "chromium")
+         , ((myModMask, xK_m), spawn "urxvt -e mocp")
+	 , ((myModMask, xK_v), spawn "VirtualBox")
+	 , ((myModMask .|. shiftMask, xK_l), spawn "~/.xmonad/.sh/lock_screen.sh")
+         , ((myModMask .|. shiftMask, xK_t), spawn "urxvt")
+	 , ((myModMask .|. shiftMask, xK_s), spawn "gnome-screenshot -i")
          ]
                    
 
+myModMask = mod1Mask
+
+myCurrentWorkspace = [
+	"ᛏ", -- tīwaz/teiwaz
+	"ᛝ", -- ing/ingwaz
+	"ᚱ", -- raidō
+	"ᛟ", -- ōþila/ōþala
+	"ᚹ", -- wunjō
+	"ᛊ", -- sōwilō
+	"ᛞ", -- dagaz
+	"ᛗ", -- mannaz
+	"ᛃ"  -- jēra
+	]
+
+myPPCurrent wid =
+    xmobarColor "#FFA500" "" $ -- #FFD700
+    (myCurrentWorkspace!!((digitToInt (wid!!0))-1)) where padLength = (maximum $ map length myWorkspaces) - length wid
+myPPHidden wid =
+    xmobarColor "#F5F5DC" "" $
+    --mouseAction (mySwitchWorkspace wid) "1" $
+    [head wid]
+myPPHiddenNoWindows wid =
+    xmobarColor "#767676" "" $
+    --mouseAction (mySwitchWorkspace wid) "1" $
+    [head wid]
+myPPUrgent wid =
+    xmobarColor "#D75F5F" "" $
+    --mouseAction (mySwitchWorkspace wid) "1" $
+    [head wid]
+
+myPPTitleSanitize title = wrap (wrap "<raw=" ":" $ show (length shortTitle)) "/>" $ shortTitle
+    where shortTitle = shorten 40 title
 
 main = do
-	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.hs"
-	spawnPipe "perl ~/.xmonad/perl/parse_xmobar0.pl | xmobar ~/.xmonad/xmobar_bot.hs"
+	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/.xmobar/xmobar_top.hs"
+	spawnPipe "xmobar ~/.xmonad/.xmobar/xmobar_bot.hs"
 	xmonad $ defaults {
-	logHook =  dynamicLogWithPP $ defaultPP {
-            ppOutput = System.IO.hPutStrLn xmproc
-          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100 .wrap "  [ <fc=orange> " " </fc> ]  "
-          , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "" . wrap "[" "]"
-          , ppSep = "   "
-          , ppWsSep = " "
-          --, ppLayout = const ""
-          , ppLayout  = (\ x -> case x of
-              "Spacing 6 Mosaic"                      -> "[:]"
-              "Spacing 6 Mirror Tall"                 -> "[M]"
-              "Spacing 6 Tabbed Simplest"             -> "[T]" --Hinted Tabbed
-              "Spacing 6 Full"                        -> "[ ]"
-              _                                       -> x )
-          , ppHiddenNoWindows = showNamedWorkspaces
-      } 
-} where showNamedWorkspaces wsId = if any (`elem` wsId) ['a'..'z']
+		logHook = dynamicLogWithPP $ defaultPP {
+            		ppOutput = System.IO.hPutStrLn xmproc
+          		, ppTitle = xmobarColor xmobarTitleColor "" . shorten 500 . wrap " [ <fc=orange> " " </fc> ] "
+          		, ppTitleSanitize = myPPTitleSanitize
+			--, ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "" . wrap " [" "] "
+	        	, ppCurrent = myPPCurrent
+       			, ppHidden = myPPHidden
+      			, ppHiddenNoWindows = myPPHiddenNoWindows
+    			, ppUrgent = myPPUrgent
+			, ppSep = "   "
+        	 	, ppWsSep = " "
+        	 	--, ppLayout = const ""
+        	 	, ppLayout  = (\ x -> case x of
+			      "Spacing 6 Mosaic"                      -> "[:]"
+		              "Spacing 6 Mirror Tall"                 -> "[M]"
+		              "Spacing 6 Tabbed Simplest"             -> "[T]" --Hinted Tabbed
+		              "Spacing 6 Full"                        -> "[ ]"
+		              _                                       -> x )
+        	  	--, ppHiddenNoWindows = showNamedWorkspaces
+      			}	
+		}
+		where showNamedWorkspaces wsId = if any (`elem` wsId) ['a'..'z']
                                        then pad wsId
                                        else ""
