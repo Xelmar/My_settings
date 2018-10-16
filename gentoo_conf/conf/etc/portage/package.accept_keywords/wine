@@ -1,1 +1,3 @@
 app-emulation/wine-vanilla ~amd64
+app-emulation/winetricks ~amd64
+app-emulation/wine-mono ~amd64

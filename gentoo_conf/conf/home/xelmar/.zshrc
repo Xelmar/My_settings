@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/xelmar/.oh-my-zsh
+export ZSH=/home/xelmar/.oh-my-zsh
 
 export VISUAL="nvim"
 #export PATH="/usr/lib/ccache/bin/:$PATH"
@@ -10,16 +10,16 @@ export VISUAL="nvim"
 
 alias font-colors="for code ({000..255}) print -P -- '\$code: \%F{\$code}This is how your text would look like\%f'"
 
-alias emerge-auDN="sudo emerge -auDN @world --exclude 'chromium'"
+alias emerge-auDN="sudo emerge -auDN @world --exclude='wine-vanilla gentoo-sources'"
 alias emerge-sync="sudo emerge --sync"
 
 alias pip-upgrade="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U --user"
 
-alias xmonad-restart="killall conky && xmonad --restart"
+alias xmonad-restart="killall xmobar && xmonad --restart"
 
 alias fehh="feh --randomize --bg-scale ~/Wallpapper/real/07.18/*"
 alias kaggle="~/.local/bin/kaggle"
-
+alias tensorboard="~/.local/bin/tensorboard --logdir runs"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes

@@ -1,0 +1,3 @@
+dev-python/pip py3.7.conf
+dev-python/setuptools py3.7.conf
+dev-python/certifi py3.7.conf

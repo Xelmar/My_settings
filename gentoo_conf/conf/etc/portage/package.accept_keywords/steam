@@ -2,3 +2,4 @@ games-util/steam-client-meta ~amd64
 games-util/steam-games-meta ~amd64
 games-util/steam-launcher ~amd64
 #games-util/steam-meta ~amd64
+x11-libs/libdrm ~amd64

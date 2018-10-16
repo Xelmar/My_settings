@@ -44,6 +44,7 @@ import XMonad.Layout.DecorationMadness
 import XMonad.Layout.TabBarDecoration
 import XMonad.Layout.IM
 import XMonad.Layout.Grid
+-- import XMonad.Layout.Fullscreen
 import XMonad.Layout.Spiral
 import XMonad.Layout.Mosaic
 import XMonad.Layout.LayoutHints
@@ -53,10 +54,11 @@ import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.Spacing
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.Gaps
-import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 
 import XMonad.Xelmar.Manage
+
+def_gaps = [(U,28),(D,28),(R,6),(L,6)]
 
 defaults = defaultConfig {
 	terminal              = "urxvt"
@@ -87,7 +89,7 @@ xmobarTitleColor = "#FFFFFF"
 -- Color of current workspace in xmobar.
 xmobarCurrentWorkspaceColor = "#8AE234"
 
-myLayoutHook = spacing 6 $ gaps [(U,28),(D,28),(R,6),(L,6)] $ toggleLayouts (noBorders Full) $ 
+myLayoutHook = spacing 6 $ gaps def_gaps $ toggleLayouts (noBorders Full) $ 
     smartBorders $ Mirror tiled ||| mosaic 2 [3,2]  ||| tabbed shrinkText myTabConfig
       where 
         tiled = Tall nmaster delta ratio
@@ -121,7 +123,6 @@ myKeys = [
          , ((myModMask .|. shiftMask, xK_t), spawn "urxvt")
 	 , ((myModMask .|. shiftMask, xK_s), spawn "gnome-screenshot -i")
          ]
-                   
 
 myModMask = mod1Mask
 
@@ -157,7 +158,7 @@ myPPTitleSanitize title = wrap (wrap "<raw=" ":" $ show (length shortTitle)) "/>
     where shortTitle = shorten 40 title
 
 main = do
-	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/.xmobar/xmobar_top.hs"
+	xmproc <- spawnPipe "xmobar ~/.xmonad/.xmobar/xmobar_top.hs"
 	spawnPipe "xmobar ~/.xmonad/.xmobar/xmobar_bot.hs"
 	xmonad $ defaults {
 		logHook = dynamicLogWithPP $ defaultPP {
@@ -176,7 +177,7 @@ main = do
 			      "Spacing 6 Mosaic"                      -> "[:]"
 		              "Spacing 6 Mirror Tall"                 -> "[M]"
 		              "Spacing 6 Tabbed Simplest"             -> "[T]" --Hinted Tabbed
-		              "Spacing 6 Full"                        -> "[ ]"
+		              "Spacing 6 Full"                        -> "[F]"
 		              _                                       -> x )
         	  	--, ppHiddenNoWindows = showNamedWorkspaces
       			}	

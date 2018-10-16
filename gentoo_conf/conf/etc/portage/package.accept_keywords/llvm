@@ -1,0 +1,12 @@
+#sys-devel/llvm:7 **
+#sys-devel/clang:7 **
+#sys-libs/compiler-rt-sanitizers:7.0.0 **
+#sys-devel/clang-runtime:7.0.0 **
+#sys-libs/compiler-rt:7.0.0 **
+#sys-libs/libomp **
+sys-devel/llvm ~amd64
+sys-devel/clang ~amd64
+sys-libs/compiler-rt-sanitizers ~amd64
+sys-devel/clang-runtime ~amd64
+sys-libs/compiler-rt ~amd64
+sys-libs/libomp ~amd64

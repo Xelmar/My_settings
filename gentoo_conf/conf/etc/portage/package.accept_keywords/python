@@ -1,2 +1,8 @@
+dev-lang/python ~amd64
+dev-python/pip ~amd64
+dev-lang/python-exec **
+dev-python/setuptools ~amd64
+dev-python/certifi ~amd64
 dev-python/msgpack ~amd64
 dev-python/numpy ~amd64
+#dev-python/pip ~amd64

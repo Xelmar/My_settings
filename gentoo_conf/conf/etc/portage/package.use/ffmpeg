@@ -1,1 +1,1 @@
-media-video/ffmpeg -abi_x86_32 amr celt chromium cpudetection fribidi gcrypt gme gpl hardcoded-tables kvazaar librtmp libsorx libv4l mipsdspr1 mipsdspr2 mipsfpu mmal network nvenc openh264 openssl opus speex ssh twolame webp zvbi n32 n64
+media-video/ffmpeg -abi_x86_32 amr celt chromium cpudetection fribidi gcrypt gme gpl hardcoded-tables kvazaar libdrm librtmp libsorx libv4l mipsdspr1 mipsdspr2 mipsfpu mmal network nvenc openh264 opencl openssl opus speex ssh twolame webp zvbi n32 n64

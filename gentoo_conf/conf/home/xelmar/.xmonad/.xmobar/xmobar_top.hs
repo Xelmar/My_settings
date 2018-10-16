@@ -52,6 +52,6 @@ Config {
     ],
     --sepChar = "%",
     alignSep = "}{",
-    template = " %StdinReader% } <icon=vl.xpm/><icon=vc.xpm/><icon=vr.xpm/> <fn=0></fn>{%default:Master% | %memory% | %dynnetwork% | %battery% | <fc=#FFFFCC>%date%</fc>   "
+    template = " %StdinReader% } <icon=vl.xpm/><icon=ds.xpm/><icon=vr.xpm/> <fn=0></fn>{%default:Master% | %memory% | %dynnetwork% | %battery% | <fc=#FFFFCC>%date%</fc>   "
 }
 

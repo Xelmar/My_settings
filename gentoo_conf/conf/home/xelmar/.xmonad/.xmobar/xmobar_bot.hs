@@ -17,7 +17,7 @@ Config {
     iconRoot = "/home/xelmar/.xmonad/.icons/",
     commands = 
     	[ Run DiskIO [("/", "<fc=orange> SSD: </fc><icon=io.xpm/> <read> <write>")] [] 3
-	, Run MultiCpu [ "--template" , "[<autototal> ]"
+	, Run MultiCpu [ "--template" , "[ <autototal> ]"
             , "--Low"      , "50"         -- units: %
             , "--High"     , "85"         -- units: %
             , "--low"      , "gray"
